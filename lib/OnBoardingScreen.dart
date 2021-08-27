@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:page_view_ornek/PageViewItem.dart';
 
-
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({Key? key}) : super(key: key);
 
@@ -10,26 +9,23 @@ class OnBoardingScreen extends StatefulWidget {
 }
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
-
   List<Map<String, String>> pageList = [
     {
-      "title":"Iphone 12",
-      "desc":"Blast past fast.",
-      "image":"assets/iphone12_1.png",
+      "title": "Iphone 12",
+      "desc": "Blast past fast.",
+      "image": "assets/iphone12_1.png",
     },
     {
-      "title":"Iphone 12",
-      "desc":"To behold And be held",
-      "image":"assets/iphone12_2.png",
+      "title": "Iphone 12",
+      "desc": "To behold And be held",
+      "image": "assets/iphone12_2.png",
     },
     {
-      "title":"Iphone 12",
-      "desc":"The chip that pushes what's possible",
-      "image":"assets/iphone12_3.png",
+      "title": "Iphone 12",
+      "desc": "The chip that pushes what's possible",
+      "image": "assets/iphone12_3.png",
     },
   ];
-
-
 
   PageController _pageController = PageController(initialPage: 0);
 
@@ -78,15 +74,14 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                                   isShowButton = false;
                                 });
                               }
-
                             },
                             children: pageList.map((item) {
-                                return PageViewItem(
-                                  title: item["title"],
-                                  desc: item["desc"],
-                                  url: item["image"],
-                                );
-                              }).toList(),
+                              return PageViewItem(
+                                title: item["title"],
+                                desc: item["desc"],
+                                url: item["image"],
+                              );
+                            }).toList(),
                           ),
                         ],
                       ),
@@ -108,17 +103,33 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   Visibility _buildIndicator() {
     return Visibility(
       visible: isShowButton,
-        child: Positioned(
-          bottom: 40,
-          right: 40,
-          child: Padding(
-            padding: EdgeInsets.all(40.0),
-            child: Container(
-              color: Colors.orange,
-              child: Text('Next'),
+      child: Positioned(
+        bottom: 40,
+        right: 40,
+        child: Padding(
+          padding: EdgeInsets.all(40.0),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(10))
             ),
+            color: Colors.orange,
+            child: Row(children: [
+              Text('Next',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                ),
+              ),
+              SizedBox(width: 10.0,),
+              Icon(
+                Icons.arrow_forward,
+                color: Colors.white,
+                size: 24.0,
+              ),
+            ]),
           ),
         ),
+      ),
     );
   }
 }
